@@ -2,6 +2,7 @@ package com.learningbycoding.showcase.security;
 
 import com.auth0.AuthenticationController;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-    @Value(value = "${com.auth0.domain")
+    @Value(value = "${com.auth0.domain}")
     private String domain;
     @Value(value = "${com.auth0.clientId}")
     private String clientId;
@@ -49,4 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public String getClientSecret(){
         return clientSecret;
     }
+
+
 }
